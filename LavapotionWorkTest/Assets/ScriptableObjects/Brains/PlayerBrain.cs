@@ -8,7 +8,7 @@ public class PlayerBrain : CharacterBrain
     public float _movementSpeed = 20;
     public float _jumpVelocity = 40;
 
-    private bool _isJumping = false;
+    //private bool _isJumping = false;
 
     public void OnEnable()
     {
@@ -34,7 +34,7 @@ public class PlayerBrain : CharacterBrain
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _isJumping = true;
+            //_isJumping = true;
             velocity.y += _jumpVelocity;
         }
 

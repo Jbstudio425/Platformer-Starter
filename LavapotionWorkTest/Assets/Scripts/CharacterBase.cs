@@ -7,10 +7,12 @@ public class CharacterBase : MonoBehaviour
 {
     [SerializeField] private CharacterBrain brain = null;
     [HideInInspector] public Rigidbody2D rigidbody = null;
+    [HideInInspector] public Animator animator = null;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()

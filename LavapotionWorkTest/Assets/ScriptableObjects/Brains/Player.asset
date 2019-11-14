@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _movementSpeed: 20
-  _jumpVelocity: 40
+  _jumpVelocity: 30

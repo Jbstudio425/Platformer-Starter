@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerBrain : CharacterBrain
 {
     public float _movementSpeed = 20;
-    public float _jumpVelocity = 40;
+    public float _jumpVelocity = 20;
 
     //private bool _isJumping = false;
 
@@ -16,6 +16,11 @@ public class PlayerBrain : CharacterBrain
     }
 
     public override void Think(CharacterBase character)
+    {
+        Move(character);
+    }
+
+    private void Move(CharacterBase character)
     {
         Vector2 velocity = Vector2.zero;
         Vector3 scale = character.transform.localScale;

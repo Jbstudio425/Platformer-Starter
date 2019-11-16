@@ -205,9 +205,10 @@ GameObject:
   - component: {fileID: 569047626425304231}
   - component: {fileID: 8715242833899164060}
   - component: {fileID: 1084936262}
+  - component: {fileID: 1529629136566361159}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +267,9 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   animator: {fileID: 0}
   ability: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   groundCheck: {fileID: 569047626065637291}
   ceilingCheck: {fileID: 569047627738146652}
 --- !u!114 &8715242833899164060
@@ -297,6 +301,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.12}
   m_Size: {x: 1.32, y: 1.46}
   m_Direction: 0
+--- !u!114 &1529629136566361159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569047626425304251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc4270505add7d41866f479315598f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &569047626528302012
 GameObject:
   m_ObjectHideFlags: 0

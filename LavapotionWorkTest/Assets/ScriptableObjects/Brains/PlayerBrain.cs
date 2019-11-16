@@ -5,10 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Brains/Player")]
 public class PlayerBrain : CharacterBrain
 {
-    public float _movementSpeed = 20;
-    public float _jumpVelocity = 20;
+    public float movementSpeed = 20f;
+    public float jumpVelocity = 20f;
 
-    //private bool _isJumping = false;
+    private bool isJumping;
+    private bool isGrounded;
 
     public void OnEnable()
     {
@@ -18,6 +19,48 @@ public class PlayerBrain : CharacterBrain
     public override void Think(CharacterBase character)
     {
         Move(character);
+        Jump(character);
+        UseAbility(character);
+    }
+
+    private void UseAbility(CharacterBase character)
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
+            if(character.ability == null){
+                Debug.LogWarning("No abillity assigned to " + character.gameObject.name);
+                return;
+            }
+
+            character.ability.Act(character);
+        }
+    }
+
+    private void CheckIfGrounded(CharacterBase character)
+    {
+        isGrounded = Physics2D.Raycast(character.groundCheck.position, Vector2.down, 0.1f, character.groundLayer);
+        
+        if(isGrounded){
+            if(isJumping){
+                isJumping = false;
+                // Todo: set animation
+            }
+        }
+    }
+    
+    private void Jump(CharacterBase character)
+    {
+        CheckIfGrounded(character);
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(isGrounded){
+                isJumping = true;
+                character.rigidbody.velocity = new Vector2 (character.rigidbody.velocity.x, jumpVelocity);
+                // Todo: set animation
+            }
+
+        }
+
     }
 
     private void Move(CharacterBase character)
@@ -36,15 +79,8 @@ public class PlayerBrain : CharacterBrain
             velocity.x += 1;
             scale.x = 1;
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //_isJumping = true;
-            velocity.y += _jumpVelocity;
-        }
 
-
-        character.rigidbody.velocity += velocity * (_movementSpeed * Time.deltaTime);
+        character.rigidbody.velocity += velocity * (movementSpeed * Time.deltaTime);
         character.transform.localScale = scale;        
     }
 }

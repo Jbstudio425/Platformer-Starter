@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50750850}
   - component: {fileID: 50750851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 235302100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293043312}
   - component: {fileID: 293043313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassMid (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347839072}
   - component: {fileID: 347839073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356658271}
   - component: {fileID: 356658270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504753944}
   - component: {fileID: 504753945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grass (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,7 +1556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538019882}
   - component: {fileID: 538019883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1613,7 +1613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582604842}
   - component: {fileID: 582604841}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1693,7 +1693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618935732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739126991}
   - component: {fileID: 739126992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2437,7 +2437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013055207}
   - component: {fileID: 1013055208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassMid (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3065,7 +3065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211893732}
   - component: {fileID: 1211893733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3146,7 +3146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258169484}
   - component: {fileID: 1258169485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DirtRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3900,7 +3900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682461261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OverWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4165,7 +4165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1859795164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4651,7 +4651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034788345}
   - component: {fileID: 2034788346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4708,7 +4708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044736677}
   - component: {fileID: 2044736678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073645241}
   - component: {fileID: 2073645242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassMid (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5010,6 +5010,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1817803525}
+    - target: {fileID: 569047626425304231, guid: b6a19348b841b8a498ecd196b645097c,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6a19348b841b8a498ecd196b645097c, type: 3}
 --- !u!1001 &4526743746127060331

@@ -264,6 +264,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 11400000, guid: 7f28401edeec7204db86ffb6037b5c59, type: 2}
   rigidbody: {fileID: 0}
+  animator: {fileID: 0}
+  ability: {fileID: 0}
+  groundCheck: {fileID: 569047626065637291}
+  ceilingCheck: {fileID: 569047627738146652}
 --- !u!114 &8715242833899164060
 MonoBehaviour:
   m_ObjectHideFlags: 0

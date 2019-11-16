@@ -5,18 +5,19 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.IO;
 
-public class SaveLoadSystem : MonoBehaviour
+public class SaveLoadSystem
 {
     public static void Save<T>(T objectToSave, string key)
     {
         string path =  Application.persistentDataPath + "/saves/";
-        Directory.CreateDirectory(path);
-        string json = null;
-
-        using (FileStream fileStream = new FileStream(path + key + ".json", FileMode.Create))
-        {
-            json = JsonUtility.ToJson(objectToSave);
-        }
+        if(!Directory.Exists(path)) Directory.CreateDirectory(path);
+        string json = JsonUtility.ToJson(objectToSave);
+        Debug.Log(json);
+        File.WriteAllText(path + key + ".json", json);
+        // using (FileStream fileStream = new FileStream(path + key + ".json", FileMode.Create))
+        // {
+        //     json = JsonUtility.ToJson(objectToSave);
+        // }
     }
 
     public static T Load<T>(string key)

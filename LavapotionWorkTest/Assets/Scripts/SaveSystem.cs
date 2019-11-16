@@ -14,18 +14,36 @@ public static class SaveSystem
 
     public static void Save(string saveString)
     {
-        File.WriteAllText(SAVE_FOLDER + "/save.txt", saveString);
+        int saveNumber = 1;
+        while(File.Exists(SAVE_FOLDER + "save_" + saveNumber + ".json")){
+            saveNumber++;
+        }
+        File.WriteAllText(SAVE_FOLDER + "/save_" + saveNumber + ".json", saveString);
     }
 
     public static string Load()
     {
-        if(File.Exists(Application.dataPath + "/save.txt")){
-            string saveString = File.ReadAllText(SAVE_FOLDER + "/save.txt");
-            return saveString;
+        DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLDER);
+        FileInfo[] saveFiles = directoryInfo.GetFiles("*.json");
+        FileInfo recentFile = null;
+
+        foreach(FileInfo fileInfo in saveFiles){
+            if(recentFile == null){
+                recentFile = fileInfo;
+            }
+            else{
+                if(fileInfo.LastWriteTime > recentFile.LastWriteTime){
+                    recentFile = fileInfo;
+                }
+            }
+        }
+
+        if(recentFile != null){
+            string saveString = File.ReadAllText(recentFile.FullName);
+            return saveString;          
         }
         else{
             return null;
         }
-
     }
 }

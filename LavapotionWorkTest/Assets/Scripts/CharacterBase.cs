@@ -24,7 +24,6 @@ public class CharacterBase : MonoBehaviour
 
     void Update()
     {
-        
         if(brain == null){
             Debug.LogWarning("No brain assigned to " + gameObject.name);
             return;

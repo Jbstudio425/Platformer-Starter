@@ -7,7 +7,7 @@ public class Collector : MonoBehaviour
 {
     private int points = 0;
     [SerializeField] private Text scoreText = null;
-    
+
     void Awake()
     {
         if(scoreText != null) scoreText.text = points.ToString();
@@ -16,6 +16,12 @@ public class Collector : MonoBehaviour
     public void AddPoints(int points)
     {
         this.points += points;
+        if(scoreText != null) scoreText.text = this.points.ToString();
+    }
+
+    public void SetPoints(int points)
+    {
+        this.points  = points;
         if(scoreText != null) scoreText.text = this.points.ToString();
     }
 

@@ -14,7 +14,7 @@ public class CollectableBase : MonoBehaviour
         sceneDataSet = FindObjectOfType<SceneDataSet>();
         uniqueID = GetComponent<UniqueID>();
 
-        if(sceneDataSet.removedObjects.Contains(uniqueID.ID)){
+        if(sceneDataSet.removedObjectsSet.Contains(uniqueID.ID)){
             Destroy(this.gameObject);
             return;
         }
@@ -23,7 +23,7 @@ public class CollectableBase : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.GetComponent<Collector>() == null) return;
-        sceneDataSet.removedObjects.Add(uniqueID.ID);
+        sceneDataSet.removedObjectsSet.Add(uniqueID.ID);
         
         Debug.Log(uniqueID.ID + " removed and added to SceneDataSet");
 

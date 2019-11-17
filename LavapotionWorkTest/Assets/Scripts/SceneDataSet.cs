@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SceneDataSet : MonoBehaviour
 {
-    public HashSet<string> removedObjects {get; private set; } = new HashSet<string>();
+    public HashSet<string> removedObjectsSet {get; private set; } = new HashSet<string>();
 
     private void Awake()
     {
@@ -36,10 +36,10 @@ public class SceneDataSet : MonoBehaviour
         player.GetComponent<Collector>().SetPoints(data.playerScore);
         player.transform.position = data.playerPosition;
 
-        removedObjects.Clear();
-        
+        removedObjectsSet.Clear();
+
         foreach(string str in data.removedObjects){
-            removedObjects.Add(str);
+            removedObjectsSet.Add(str);
         }
     }
 
@@ -49,7 +49,7 @@ public class SceneDataSet : MonoBehaviour
         data.playerScore = player.GetComponent<Collector>().GetPoints();
         data.playerPosition = player.transform.position;
 
-        foreach(string str in removedObjects){
+        foreach(string str in removedObjectsSet){
             data.removedObjects.Add(str);
         }
     }

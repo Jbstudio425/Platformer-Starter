@@ -24,7 +24,7 @@ public class CharacterBase : MonoBehaviour
         sceneDataSet = FindObjectOfType<SceneDataSet>();
         uniqueID = GetComponent<UniqueID>();
 
-        if(sceneDataSet.removedObjects.Contains(uniqueID.ID)){
+        if(sceneDataSet.removedObjectsSet.Contains(uniqueID.ID)){
             Destroy(this.gameObject);
             return;
         }

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(UniqueID))]
 public class CharacterBase : MonoBehaviour
 {
     [SerializeField] private CharacterBrain brain = null;
+    
+    private SceneDataSet sceneDataSet;
+    private UniqueID uniqueID;
 
     [HideInInspector] public Rigidbody2D rigidbody = null;
     [HideInInspector] public Animator animator = null;
@@ -17,9 +21,16 @@ public class CharacterBase : MonoBehaviour
 
     void Awake()
     {
+        sceneDataSet = FindObjectOfType<SceneDataSet>();
+        uniqueID = GetComponent<UniqueID>();
+
+        if(sceneDataSet.removedObjects.Contains(uniqueID.ID)){
+            Destroy(this.gameObject);
+            return;
+        }
+
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
     }
 
     void Update()

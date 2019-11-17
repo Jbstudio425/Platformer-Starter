@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
+﻿using UnityEngine;
 using System.IO;
 
 public class SaveLoadSystem
@@ -11,27 +7,22 @@ public class SaveLoadSystem
     {
         string path =  Application.persistentDataPath + "/saves/";
         if(!Directory.Exists(path)) Directory.CreateDirectory(path);
+
         string json = JsonUtility.ToJson(objectToSave);
-        Debug.Log(json);
         File.WriteAllText(path + key + ".json", json);
-        // using (FileStream fileStream = new FileStream(path + key + ".json", FileMode.Create))
-        // {
-        //     json = JsonUtility.ToJson(objectToSave);
-        // }
+
+        Debug.Log("Saved");
     }
 
     public static T Load<T>(string key)
     {
         string path =  Application.persistentDataPath + "/saves/";
-        string json = null;
-        
-        using (FileStream fileStream = new FileStream(path + key + ".json", FileMode.Open))
-        {
-            json = fileStream.ToString();
-        }
+        string json = File.ReadAllText(path + key + ".json"); 
         
         T returnValue = default(T);
         if(json != null) returnValue = JsonUtility.FromJson<T>(json);
+
+        Debug.Log("Loaded");
 
         return returnValue;
     }
@@ -46,7 +37,7 @@ public class SaveLoadSystem
     {
         string path =  Application.persistentDataPath + "/saves/";
         DirectoryInfo directory = new DirectoryInfo(path); 
-        directory.Delete();
+        directory.Delete(true);
         Directory.CreateDirectory(path);
     }
 }

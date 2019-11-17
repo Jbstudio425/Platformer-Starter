@@ -26,8 +26,6 @@ public class CollectableBase : MonoBehaviour
         sceneDataSet.removedObjects.Add(uniqueID.ID);
         
         Debug.Log(uniqueID.ID + " removed and added to SceneDataSet");
-        Debug.Log(sceneDataSet.removedObjects);
-        Debug.Log(JsonUtility.ToJson(sceneDataSet.removedObjects));
 
         collectable.Collect(other.gameObject);
         Destroy(gameObject);

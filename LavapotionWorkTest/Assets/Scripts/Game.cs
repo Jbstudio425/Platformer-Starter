@@ -27,7 +27,6 @@ public class Game : MonoBehaviour
 
     private void Load()
     {
-        GameEvents.OnLoadInitiated();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

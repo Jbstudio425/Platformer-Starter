@@ -10,18 +10,17 @@ public class SceneDataSet : MonoBehaviour
     private void Awake()
     {
         GameEvents.SaveInitiated += Save;
-        GameEvents.LoadInitiated += Load;
         Load();
     }
 
-    void Save()
+    private void Save()
     {
         SaveData saveObj = new SaveData();
         GetLevelInfo(saveObj);
         SaveLoadSystem.Save(saveObj, "SaveData");
     }
 
-    void Load()
+    private void Load()
     {
         if(SaveLoadSystem.SaveExists("SaveData")){
             SaveData saveObj = new SaveData();

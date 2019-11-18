@@ -4,15 +4,30 @@ using LP.Core;
 
 namespace LP.Saving
 {
-    [System.Serializable]
-    public class SceneDataSet : MonoBehaviour
+    public interface ISceneDataSet
     {
-        public HashSet<string> removedObjectsSet {get; private set; } = new HashSet<string>();
+        void Add(string id);
+        bool Contains(string id);
+    }
 
-        private void Awake()
+    public class SceneDataSet : ISceneDataSet
+    {
+        private  HashSet<string> removedObjectsSet = new HashSet<string>();
+
+        private SceneDataSet()
         {
             GameEvents.SaveInitiated += Save;
             Load();
+        }
+
+        public void Add(string id)
+        {
+            removedObjectsSet.Add(id);
+        }
+
+        public bool Contains(string id)
+        {
+            return removedObjectsSet.Contains(id);
         }
 
         private void Save()

@@ -2,11 +2,17 @@
 using UnityEngine.SceneManagement;
 using LP.Saving;
 
+
 namespace LP.Core
 {
-    public class Game : MonoBehaviour
+    public interface IGame
     {
-        void Update()
+        void FunctionInputs();
+    }
+
+    public class Game : IGame
+    {
+        public void FunctionInputs()
         {
             if(Input.GetKeyDown(KeyCode.F5)){
                 Save();

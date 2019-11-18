@@ -8,7 +8,7 @@ public class CharacterBase : MonoBehaviour
 {
     [SerializeField] private CharacterBrain brain = null;
     
-    private SceneDataSet sceneDataSet;
+    private ISceneDataSet sceneDataSet;
     private UniqueID uniqueID;
 
     [HideInInspector] public Rigidbody2D rigidbody = null;
@@ -19,12 +19,17 @@ public class CharacterBase : MonoBehaviour
     public Transform groundCheck = null;
     public Transform ceilingCheck = null;
 
+    [Inject]
+    public void Setup(ISceneDataSet sceneDataSet)
+    {
+        this.sceneDataSet = sceneDataSet;
+    }
+
     void Awake()
     {
-        sceneDataSet = FindObjectOfType<SceneDataSet>();
         uniqueID = GetComponent<UniqueID>();
 
-        if(sceneDataSet.removedObjectsSet.Contains(uniqueID.ID)){
+        if(sceneDataSet.Contains(uniqueID.ID)){
             Destroy(this.gameObject);
             return;
         }

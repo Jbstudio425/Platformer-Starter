@@ -1,6 +1,6 @@
 ﻿namespace LP.Core
 {
-    public class GameEvents
+    public static class GameEvents
     {
         public static System.Action SaveInitiated;
 

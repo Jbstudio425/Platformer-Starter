@@ -6,15 +6,19 @@ using Zenject;
 public class CollectableBase : MonoBehaviour
 {
     [SerializeField] private Collectable collectable = null;
-    private SceneDataSet sceneDataSet;
+    private ISceneDataSet sceneDataSet;
     private UniqueID uniqueID;
+
+    [Inject]
+    public void Setup(ISceneDataSet sceneDataSet)
+    {
+        this.sceneDataSet = sceneDataSet;
+    }
 
     private void Start()
     {
-        sceneDataSet = FindObjectOfType<SceneDataSet>();
         uniqueID = GetComponent<UniqueID>();
-
-        if(sceneDataSet.removedObjectsSet.Contains(uniqueID.ID)){
+        if(sceneDataSet.Contains(uniqueID.ID)){
             Destroy(this.gameObject);
             return;
         }
@@ -23,7 +27,7 @@ public class CollectableBase : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.GetComponent<Collector>() == null) return;
-        sceneDataSet.removedObjectsSet.Add(uniqueID.ID);
+        sceneDataSet.Add(uniqueID.ID);
         
         Debug.Log(uniqueID.ID + " removed and added to SceneDataSet");
 

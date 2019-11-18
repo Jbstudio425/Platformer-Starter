@@ -7,15 +7,17 @@ public class GameInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        InstallSceneDataSet();
         InstallCore();
-    }
-
-    void InstallSceneDataSet()
-    {
+        InstallSaving();
     }
 
     void InstallCore()
     {
+        Container.Bind<IGame>().To<Game>().AsSingle();
+    }
+
+    void InstallSaving()
+    {
+        Container.Bind<ISceneDataSet>().To<SceneDataSet>().AsSingle();
     }
 }

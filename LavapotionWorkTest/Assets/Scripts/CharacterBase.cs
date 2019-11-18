@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using LP.Saving;
+using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(UniqueID))]

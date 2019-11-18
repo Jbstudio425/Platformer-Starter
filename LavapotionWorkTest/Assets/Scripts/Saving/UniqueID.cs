@@ -1,0 +1,14 @@
+﻿using UnityEngine;
+
+namespace LP.Saving
+{
+    public class UniqueID : MonoBehaviour
+    {
+        public string ID {get; private set;}
+
+        void Awake()
+        {
+            ID = transform.position.sqrMagnitude + "-" + name + "-" + transform.GetSiblingIndex();
+        }
+    }
+}

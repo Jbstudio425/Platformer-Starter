@@ -1,5 +1,5 @@
-# Platformer Starter
-Small starter project with minor features. 
+# Platformer Starter for Unity 
+Small starter project in Unity with minor features. 
 All code is free to use.  
 
 * Dependency injection with Zenject.

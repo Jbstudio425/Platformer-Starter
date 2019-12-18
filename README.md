@@ -1,1 +1,2 @@
-# LPW-Test
+# Platformer Starter
+Small starter project. 

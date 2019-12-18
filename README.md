@@ -1,7 +1,7 @@
 # Platformer Starter for Unity 
 Small starter project in Unity. [2D assets used in project.](https://assetstore.unity.com/packages/2d/environments/free-platform-game-assets-85838) 
 
-All code is free to use.
+All code is free to use. Unity 2019.3.*
 
 ### Features in project
 * Dependency injection with Zenject.

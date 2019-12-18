@@ -1,6 +1,8 @@
 # Platformer Starter for Unity 
-Small starter project in Unity with minor features. 
-All code is free to use.  
+Small starter project in Unity with minor features. [2D assets used in project.](https://assetstore.unity.com/packages/2d/environments/free-platform-game-assets-85838) 
+
+All code is free to use.
+
 
 * Dependency injection with Zenject.
 * Simple save and load system.

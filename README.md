@@ -1,5 +1,6 @@
 # Platformer Starter
 Small starter project with minor features. 
+All code is free to use.  
 
 * Dependency injection with Zenject.
 * Simple save and load system.

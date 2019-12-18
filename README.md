@@ -9,6 +9,7 @@ All code is free to use. Unity 2019.3.*
 * Simple collecting system. 
 * Simple event system for functions to subscribe to.
 * Basic platformer controls.
+* Simple usage of scriptable objects.
 
 ### In-game Controls 
 * Movement: A, D
